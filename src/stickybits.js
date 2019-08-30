@@ -311,7 +311,7 @@ class Stickybits {
     const scroll = this.isWin ? (window.scrollY || window.pageYOffset) : se.scrollTop
     const notSticky = scroll > start && scroll < stop && (state === 'default' || state === 'stuck')
     const isSticky = isTop && scroll <= start && (state === 'sticky' || state === 'stuck')
-    const isStuck = scroll >= stop && state === 'sticky'
+    const isStuck = false
     /*
       Unnamed arrow functions within this block
       ---

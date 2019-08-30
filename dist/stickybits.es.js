@@ -333,7 +333,6 @@ function () {
     var scroll = this.isWin ? window.scrollY || window.pageYOffset : se.scrollTop;
     var notSticky = scroll > start && scroll < stop && (state === 'default' || state === 'stuck');
     var isSticky = isTop && scroll <= start && (state === 'sticky' || state === 'stuck');
-    var isStuck = scroll >= stop && state === 'sticky';
     /*
       Unnamed arrow functions within this block
       ---
@@ -357,15 +356,6 @@ function () {
         tC(e, sticky);
         tC(e, stuck);
         if (pv === 'fixed') stl.position = '';
-      });
-    } else if (isStuck) {
-      it.state = 'stuck';
-      rAF(function () {
-        tC(e, sticky, stuck);
-        if (pv !== 'fixed' || ns) return;
-        stl.top = '';
-        stl.bottom = '0';
-        stl.position = 'absolute';
       });
     }
 
